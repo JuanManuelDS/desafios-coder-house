@@ -1,0 +1,31 @@
+html
+    head
+        style
+            include main.css
+    body
+        h1="Agregar un producto"
+
+        div 
+            form(method='post' action='/api/productos')
+                label(for='title')='Título: '
+                input(type='text' name='title' id='title')
+                br
+                br
+                label(for='price')='Precio: '
+                input(type='text' name='price' id='price')
+                br
+                br
+                label(for='image')='URL Imágen: '
+                input(type='text' name='image' id='image')
+                br
+                br
+                label(for='type')='Categoría: '
+                select(name='type' id='type')
+                    option(value="ropa")='Ropa'
+                    option(value="libro")='libro'
+                br
+                br  
+                input(type="submit" value='Submit')
+
+        button(class='botones-redireccion') 
+            a(href='http://localhost:8080/')="Ver la lista de productos"

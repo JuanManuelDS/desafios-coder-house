@@ -1,0 +1,17 @@
+html
+    head
+        style
+            include main.css
+    body
+        h1="listado de productos"
+        div
+        for item in productos
+            div
+                p=item.title 
+                p=item.type
+                p(class='p-price')=item.price
+                img(class='product-img', src=item.thumbnail) 
+        button(class='botones-redireccion') 
+            a(href='http://localhost:8080/productos')="Agregar un producto"
+
+
