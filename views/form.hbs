@@ -1,0 +1,30 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='stylesheet' type='text/css' href='../public/styles/main.css' />
+    <title>Document</title>
+  </head>
+  <body>
+    {{> navbar}}
+<br/>
+
+<form action="/api/productos" method="post">
+    Título <input type="text" id="title" name="title" /><br /><br />
+    Precio <input type="text" id="price" name="price" /><br /><br />
+    URL imágen <input type="text" id="thumbnail" name="thumbnail" /><br /><br />
+    Categoría del producto <select id="type" name="type">
+        <option value="ropa">Ropa</option>
+        <option value="libro">Libro</option>
+    </select><br><br />
+    <input type="submit" value="Vamos!" />
+</form>
+
+<button class="agregar-producto-button"><a href="http://localhost:8080/">Ver la lista de productos</a></button>
+
+<br/>
+{{> footer}}
+<br/>
+  </body>
+</html>
