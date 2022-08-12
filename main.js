@@ -1,7 +1,7 @@
-import Contenedor from './contenedor.js';
-import express from 'express';
-import path from 'path';
-import { engine } from 'express-handlebars';
+const Contenedor = require('./contenedor');
+const express = require('express');
+const path = require('path');
+const { engine } = require('express-handlebars');
 
 const { Router } = express;
 const app = express();
@@ -9,7 +9,6 @@ const router = Router();
 const PORT = 8080;
 
 let productos = new Contenedor();
-const __dirname = path.resolve();
 
 const server = app.listen(PORT);
 
