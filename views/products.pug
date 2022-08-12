@@ -4,13 +4,20 @@ html
             include main.css
     body
         h1="listado de productos"
-        div
-        for item in productos
-            div
-                p=item.title 
-                p=item.type
-                p(class='p-price')=item.price
-                img(class='product-img', src=item.thumbnail) 
+        
+        table 
+            tr 
+                th="Titulo"
+                th='Precio'
+                th='Imágen'
+            each item in productos 
+                tr 
+                    td= item.title 
+                    td= item.price 
+                    td= item.thumbnail
+
+            
+        
         button(class='botones-redireccion') 
             a(href='http://localhost:8080/productos')="Agregar un producto"
 
