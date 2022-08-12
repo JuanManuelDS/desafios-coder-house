@@ -1,6 +1,6 @@
-import Contenedor from "./contenedor.js";
-import express from "express";
-import path from "path";
+const Contenedor = require("./contenedor");
+const express = require("express");
+const path = require("path");
 
 const { Router } = express;
 const app = express();
@@ -8,20 +8,20 @@ const router = Router();
 const PORT = 8080;
 const server = app.listen(PORT);
 let productos = new Contenedor();
-const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/productos", router);
 app.use("public", express.static(__dirname + "/public"));
+app.set("view engine", "ejs");
 
 //Aquí estoy seteando que cuando entren a localhost.com/ les devuelva index.html
 app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/index.html");
+  response.render("pages/productList", { productos: productos.getAll() });
 });
 
-app.get("/form", (request, response) => {
-  response.redirect("/");
+app.get("/productos", (request, response) => {
+  response.render("pages/form", { productos: productos.getAll() });
 });
 
 router.get("/", (request, response) => {

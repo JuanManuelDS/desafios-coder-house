@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body>
+    <form method="post" action="/api/productos">
+        <input type="text" placeholder="Titulo" name="title" id="title">
+        <input type="text" placeholder="Precio" name="price" id="price">
+        <input type="text" placeholder="Imagen" name="thumbnail" id="thumbnail">
+        Categoría: <select name="type" id="type">
+            <option value="ropa">Ropa</option>
+            <option value="libro">Libro</option>
+        </select>
+        <input type="submit" name="Vamos!">
+    </form>
+    
+    <button class="redirect-button"><a href="http://localhost:8080/">Ver la lista de productos</a></button>
+  </body>
+</html>

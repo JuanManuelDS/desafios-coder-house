@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body>
+    <%- include('../partials/navbar'); %>
+
+    <% productos.forEach((item)=>{ %>
+        <p>
+            Título: <%=item.title%><br/>
+            Categoría: <%=item.type%><br/>
+            Precio: <%=item.price%><br/>
+            <img class="product-img" src="<%=item.thumbnail %>"/><br/>
+        </p>
+    <% }) %>
+    <button><a href="http://localhost:8080/productos">Agregar un producto a la lista</a></button>
+    <%- include('../partials/footer'); %> 
+  </body>
+</html>
