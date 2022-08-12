@@ -10,21 +10,36 @@
     {{> navbar}}
 <br/>
 
-<h1>Listado de productos</h1>
-    {{#each products}}
+<table>
+  <tr>
+    <th>Título</th>
+    <th>Precio</th>
+    <th>Imágen</th>
+  </tr>
+{{#each products}}
+  <tr>
+    <td>{{this.title}}</td>
+    <td>{{this.price}}</td>
+    <td><img src="{{this.thumbnail}}" alt=""></td>
+  </tr>
+  {{/each}}
+</table>
+
+    <h1>Listado de productos</h1>
+      {{#each products}}
         <div>
             {{this.id}}<br/>
             {{this.title}}<br/>
             {{this.price}}<br/>
             <img src="{{this.thumbnail}}" class="product-img"/>
         </div>
-    {{/each}}
+      {{/each}}
 
     <button class="agregar-producto-button"><a href="http://localhost:8080/productos">Agregar un nuevo producto</a></button>
 
-<br/>
-{{> footer}}
-<br/>
+    <br/>
+    {{> footer}}
+    <br/>
   </body>
 </html>
 
