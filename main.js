@@ -1,6 +1,5 @@
-import Contenedor from './contenedor.js';
-import express from 'express';
-import path from 'path';
+const Contenedor = require('./contenedor');
+const express = require('express');
 
 const { Router } = express;
 const app = express();
@@ -8,7 +7,6 @@ const router = Router();
 const PORT = 8080;
 const server = app.listen(PORT);
 let productos = new Contenedor();
-const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

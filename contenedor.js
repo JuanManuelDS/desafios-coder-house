@@ -1,14 +1,12 @@
-import * as fs from "fs";
+const fs = require('fs');
 
-export default class Contenedor {
+class Contenedor {
   getAll() {
     let data, file;
     try {
-      file = fs.readFileSync("data.json", "utf-8");
+      file = fs.readFileSync('data.json', 'utf-8');
     } catch (err) {
-      console.log(
-        "Hubo un error al leer el archivo en la función getAll(): " + err
-      );
+      console.log('Hubo un error al leer el archivo en la función getAll(): ' + err);
     }
     if (file) {
       data = JSON.parse(file);
@@ -32,11 +30,9 @@ export default class Contenedor {
     listaProductos.push(producto);
     listaProductosJSON = JSON.stringify(listaProductos);
     try {
-      fs.writeFileSync("data.json", listaProductosJSON);
+      fs.writeFileSync('data.json', listaProductosJSON);
     } catch (err) {
-      console.log(
-        "Hubo un error al intentar reescribir el archivo en save(): " + err
-      );
+      console.log('Hubo un error al intentar reescribir el archivo en save(): ' + err);
     }
     return producto.id;
   }
@@ -50,7 +46,7 @@ export default class Contenedor {
     if (producto) {
       return producto;
     } else {
-      console.log("No existe un producto con el número de ID: " + numeroID);
+      console.log('No existe un producto con el número de ID: ' + numeroID);
     }
   }
 
@@ -66,27 +62,21 @@ export default class Contenedor {
       listaProductos.splice(indexDelProductoAEliminar, 1);
       let nuevaListaProductosJSON = JSON.stringify(listaProductos);
       try {
-        fs.writeFileSync("data.json", nuevaListaProductosJSON);
+        fs.writeFileSync('data.json', nuevaListaProductosJSON);
       } catch (err) {
-        console.log(
-          "Hubo un error al intentar reescribir el archivo en deleteById(): " +
-            err
-        );
+        console.log('Hubo un error al intentar reescribir el archivo en deleteById(): ' + err);
       }
-    } else if (
-      indexDelProductoAEliminar != undefined &&
-      listaProductos.length == 1
-    ) {
+    } else if (indexDelProductoAEliminar != undefined && listaProductos.length == 1) {
       this.deleteAll();
     } else {
-      console.log(
-        `El producto con el ID ${numeroID} no existe en nuestra base de datos`
-      );
+      console.log(`El producto con el ID ${numeroID} no existe en nuestra base de datos`);
     }
     return indexDelProductoAEliminar ? true : false;
   }
 
   deleteAll() {
-    fs.writeFileSync("data.json", "");
+    fs.writeFileSync('data.json', '');
   }
 }
+
+module.exports = Contenedor;
