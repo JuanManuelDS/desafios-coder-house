@@ -5,6 +5,24 @@
   </head>
   <body>
     <%- include('../partials/navbar'); %>
+    <br><br><br>
+
+    <table>
+      <tr>
+        <th>Título</th>
+        <th>Precio</th>
+        <th>Imágen</th>
+      </tr>
+      <% productos.forEach((item)=> { %>
+        <tr>
+          <td><%=item.title%></td>
+          <td><%=item.price%></td>
+          <td><img src= <%=item.title%> ></td>
+        </tr>
+      <% }) %>
+    </table>
+    
+    <br><br><br>
 
     <% productos.forEach((item)=>{ %>
         <p>
