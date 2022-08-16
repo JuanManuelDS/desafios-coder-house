@@ -1,6 +1,6 @@
-import * as fs from "fs";
+const fs = require("fs");
 
-export default class Contenedor {
+class Contenedor {
   getAll() {
     let data, file;
     try {
@@ -90,3 +90,5 @@ export default class Contenedor {
     fs.writeFileSync("data.json", "");
   }
 }
+
+module.exports = Contenedor;

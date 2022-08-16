@@ -1,0 +1,84 @@
+body {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body>div{
+    margin: 30px;
+}
+
+div#formulario {
+    max-width: 500px;
+    background-color: lightgray;
+    border-radius: 50px;
+    padding: 50px;
+}
+
+div#formulario h1 {
+    color: blue;
+    margin-top: 0px;
+}
+
+div#formulario form {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+div#formulario form input, div#formulario form select  {
+    margin: 2px 0px 10px 0px;
+    width: 100%;
+}
+
+div#formulario input:last-child {
+    margin-top: 20px;
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+}
+
+div#formulario input:last-child:hover {
+    cursor: pointer;
+}
+
+div#formulario input:last-child:active{
+    background-color: darkgreen;
+}
+
+table {
+    width: 400px;
+}
+
+table, table td, table th {
+    border: 1px solid black;
+}
+
+#tabla-productos td img {
+    height: 100px;
+}
+
+div#chat span#empty-email-error {
+    color: red;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+div#chat span.chat-email-color {
+    color: green;
+    font-weight: bold;
+}
+
+div#chat span.fecha-hora {
+    color: red;
+}
+
+div#chat-mensajes {
+    max-height: 400px;
+    max-width: 50vw;
+    overflow-y: scroll;
+}

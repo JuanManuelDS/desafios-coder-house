@@ -1,7 +1,20 @@
 {
+  "name": "desafio-clase-11-y-12",
+  "version": "0.0.0",
+  "description": "desarrollo de una tabla dinámica de productos y chat",
+  "main": "main.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JuanManuelDS/desafios-coder-house"
+  },
+  "author": "Juan Manuel De Senzi",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
-    "nodemon": "^2.0.19"
-  },
-  "type": "module"
+    "moment": "^2.29.4",
+    "socket.io": "^4.5.1"
+  }
 }

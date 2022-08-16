@@ -3,24 +3,50 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Desafío 6</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src='index.js'></script>
 </head>
 <body>
-    <div>
-        <h2>Ingrese los datos de su producto</h2>
-        <form action="/api/productos" method="post">
-            Título <input type="text" id="title" name="title" /><br /><br />
-            Precio <input type="text" id="price" name="price" /><br /><br />
-            URL imágen <input type="text" id="thumbnail" name="thumbnail" /><br /><br />
-            Categoría del producto <select id="type" name="type">
+    <div id="formulario">
+        <h1>Ingrese los datos de su producto</h1>
+        <form onsubmit="return agregarProducto()">
+
+            <label for="title">Título</label><br>
+            <input type="text" id="form-title" name="title" /><br>
+
+            <label for="price">Precio</label><br>
+            <input type="text" id="form-price" name="price" /><br>
+
+            <label for="thumbnail">URL Imágen</label><br>
+            <input type="text" id="form-thumbnail" name="thumbnail" /><br>
+
+            <label for="type">Categoría del producto</label><br>
+            <select id="form-type" name="type">
                 <option value="ropa">Ropa</option>
                 <option value="libro">Libro</option>
-              </select><br><br />
-            <input type="submit" value="Vamos!" />
+              </select><br>
+            <input type="submit" value="Agregar producto" />
           </form>
+    </div>
+
+    <div id="tabla-productos-container">
+        <table id="tabla-productos"></table>
+    </div>
+
+    <div id="chat">
+        <div id="chat-info"> 
+            <h2>Centro de mensajes</h2>
+            <form onsubmit="return enviarMensaje()">
+                <input type="text" name="email" id="form-chat-email" placeholder="ejemplo@gmail.com" >
+                <input type="text" name="mensaje" id="form-chat-mensaje" placeholder="Ingrese su mensaje...">
+                <input type="submit" value="Enviar" id="form-chat-submit">
+            </form>
+        </div>
+        <span id="empty-email-error"></span>
+        <div id="chat-mensajes"></div>
     </div>
 </body>
 </html>
