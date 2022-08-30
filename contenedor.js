@@ -1,5 +1,6 @@
 const fs = require("fs");
 
+
 class Contenedor {
   getAll() {
     let data, file;

@@ -4,13 +4,13 @@ function agregarProducto() {
   const title = document.getElementById("form-title").value;
   const price = document.getElementById("form-price").value;
   const thumbnail = document.getElementById("form-thumbnail").value;
-  const type = document.getElementById("form-type").value;
+  const description = document.getElementById("form-description").value;
 
   const productToAdd = {
     title: title,
     price: price,
     thumbnail: thumbnail,
-    type: type,
+    description: description,
   };
 
   socket.emit("agregar-producto", productToAdd);
@@ -36,16 +36,18 @@ function armarTablaProductos(listaProductos) {
 }
 
 function enviarMensaje() {
+  const name = document.getElementById("form-chat-name").value;
   const email = document.getElementById("form-chat-email").value;
-  const mensaje = document.getElementById("form-chat-mensaje").value;
+  const message = document.getElementById("form-chat-mensaje").value;
 
   if (!email) {
     document.getElementById("empty-email-error").innerHTML =
       "Por favor, ingrese su email para poder enviar un mensaje";
   } else {
     socket.emit("chat", {
+      name: name,
       email: email,
-      mensaje: mensaje,
+      message: message,
     });
     document.getElementById("empty-email-error").innerHTML = "";
   }
@@ -53,13 +55,14 @@ function enviarMensaje() {
 }
 
 socket.on("lista-productos-actualizada", (listaProductos) => {
+  console.log(listaProductos);
   armarTablaProductos(listaProductos);
 });
 
 socket.on("chat-actualizado", (mensajes) => {
   const html = mensajes.reduce(
     (html, item) =>
-      `<p><span class='chat-email-color'>${item.email}</span><span class='fecha-hora'> [${item.fechaHora}]: </span><span class='chat-mensaje-color'>${item.mensaje}</span></p>` +
+      `<p><span class='chat-email-color'>${item.email}</span><span class='fecha-hora'> [${item.name}]: </span><span class='chat-mensaje-color'>${item.message}</span></p>` +
       html,
     ""
   );

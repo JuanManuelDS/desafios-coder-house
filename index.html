@@ -23,11 +23,9 @@
             <label for="thumbnail">URL Imágen</label><br>
             <input type="text" id="form-thumbnail" name="thumbnail" /><br>
 
-            <label for="type">Categoría del producto</label><br>
-            <select id="form-type" name="type">
-                <option value="ropa">Ropa</option>
-                <option value="libro">Libro</option>
-              </select><br>
+            <label for="description">Categoría del producto</label><br>
+            <input type="text" id="form-description" name="description"><br>
+
             <input type="submit" value="Agregar producto" />
           </form>
     </div>
@@ -40,6 +38,7 @@
         <div id="chat-info"> 
             <h2>Centro de mensajes</h2>
             <form onsubmit="return enviarMensaje()">
+                <input type="text" name="name" id="form-chat-name" placeholder="Pepe">
                 <input type="text" name="email" id="form-chat-email" placeholder="ejemplo@gmail.com" >
                 <input type="text" name="mensaje" id="form-chat-mensaje" placeholder="Ingrese su mensaje...">
                 <input type="submit" value="Enviar" id="form-chat-submit">

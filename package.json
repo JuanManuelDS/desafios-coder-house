@@ -1,5 +1,5 @@
 {
-  "name": "desafio-clase-11-y-12",
+  "name": "desafio-clase-15-16",
   "version": "0.0.0",
   "description": "desarrollo de una tabla dinámica de productos y chat",
   "main": "main.js",
@@ -14,7 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "knex": "^2.2.0",
     "moment": "^2.29.4",
-    "socket.io": "^4.5.1"
+    "mysql": "^2.18.1",
+    "socket.io": "^4.5.1",
+    "sqlite3": "^5.0.11"
   }
 }
