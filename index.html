@@ -7,45 +7,29 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src="/socket.io/socket.io.js"></script>
-    <script src='index.js'></script>
 </head>
 <body>
-    <div id="formulario">
-        <h1>Ingrese los datos de su producto</h1>
-        <form onsubmit="return agregarProducto()">
-
-            <label for="title">Título</label><br>
-            <input type="text" id="form-title" name="title" /><br>
-
-            <label for="price">Precio</label><br>
-            <input type="text" id="form-price" name="price" /><br>
-
-            <label for="thumbnail">URL Imágen</label><br>
-            <input type="text" id="form-thumbnail" name="thumbnail" /><br>
-
-            <label for="description">Categoría del producto</label><br>
-            <input type="text" id="form-description" name="description"><br>
-
-            <input type="submit" value="Agregar producto" />
-          </form>
-    </div>
-
-    <div id="tabla-productos-container">
-        <table id="tabla-productos"></table>
-    </div>
 
     <div id="chat">
         <div id="chat-info"> 
             <h2>Centro de mensajes</h2>
-            <form onsubmit="return enviarMensaje()">
-                <input type="text" name="name" id="form-chat-name" placeholder="Pepe">
-                <input type="text" name="email" id="form-chat-email" placeholder="ejemplo@gmail.com" >
-                <input type="text" name="mensaje" id="form-chat-mensaje" placeholder="Ingrese su mensaje...">
-                <input type="submit" value="Enviar" id="form-chat-submit">
+            <form>
+                <label>Nombre: <input type="text" id="form-chat-name" placeholder="Pepe"></label>
+                <label>Apellido: <input type="text" id="form-chat-surname" placeholder="Gonzalez"></label>
+                <label>Alias: <input type="text" id="form-chat-alias" placeholder="El pepón"></label>
+                <label>Edad: <input type="text" id="form-chat-age" placeholder="30"></label>
+                <label>Email: <input type="text" id="form-chat-email" placeholder="ejemplo@gmail.com" ></label>
+                <label>Mensaje: <textarea id='form-chat-message' cols="30" rows="10"></textarea></label>
+                <button id="sendButton">Enviar mensaje</button>
             </form>
+        
+            <span id="empty-email-error"></span>
         </div>
-        <span id="empty-email-error"></span>
         <div id="chat-mensajes"></div>
+        <div id="porcentajeCompresion"></div>
     </div>
+
+    <script src='index.js'></script>
+    
 </body>
 </html>
